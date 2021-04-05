@@ -31,6 +31,7 @@ public class Controller_ApplyLeave {
 	@RequestMapping("/GoToLeavePage")
 	public ModelAndView GoToLeavePage(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) throws UnsupportedEncodingException
 	{	
+		//sone
 	    email =httpServletRequest.getParameter("email");
 		List<Entity_GoolgeLogin_UserData> userbrach = Service_GoogleLogin_UserData.getUserByEmail(email);
 		for(Entity_GoolgeLogin_UserData Entity_GoolgeLogin_UserData :userbrach)
