@@ -19,11 +19,7 @@ public class Entity_Leave_Request {
 	private int id;
 	String dateFrom,dateTo,toemp,fromemp,branch,image,reason,status,type,name,email;
 	int nod;
-	
-	public Entity_Leave_Request() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
   
 
 	public Entity_Leave_Request(String dateFrom, String dateTo, String toemp, String fromemp, String branch,
