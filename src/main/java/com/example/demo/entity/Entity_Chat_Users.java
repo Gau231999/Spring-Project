@@ -22,7 +22,10 @@ public class Entity_Chat_Users {
 	String  senderemail,email,img_url,name;
 	
 	
-
+	public Entity_Chat_Users() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 
 	public Entity_Chat_Users(String senderemail, String email, String img_url, String name) {
