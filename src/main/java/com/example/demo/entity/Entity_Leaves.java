@@ -20,10 +20,7 @@ public class Entity_Leaves {
 	private  int casualLeave,medicalLeave,sickLeave,earnedLeave,outdoorDuty;
 	String name,email;
 	
-	public Entity_Leaves() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	public Entity_Leaves(int casualLeave, int medicalLeave, int sickLeave, int earnedLeave, int outdoorDuty,
 			String name, String email) {
