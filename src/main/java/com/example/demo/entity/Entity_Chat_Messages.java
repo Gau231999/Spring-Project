@@ -19,7 +19,9 @@ public class Entity_Chat_Messages {
 	private int id;
 	String  message,senderemail,receiveremail,commonid;
 	
-
+	public Entity_Chat_Messages() {
+		super();
+	}
 
 	public Entity_Chat_Messages(String message, String senderemail, String receiveremail, String commonid) {
 		super();

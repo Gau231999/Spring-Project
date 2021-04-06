@@ -26,7 +26,10 @@ public class Entity_UploadFileResponse {
     private long size;
     
     
-
+	public Entity_UploadFileResponse() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Entity_UploadFileResponse(String fileName, String fileDownloadUri, String fileType, String email,
 			long size) {

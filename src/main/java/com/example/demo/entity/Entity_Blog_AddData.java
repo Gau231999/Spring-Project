@@ -20,7 +20,10 @@ public class Entity_Blog_AddData {
 	String name,email,designation,branch,subject,description,img,file,date;
 	
 	
-
+	public Entity_Blog_AddData() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Entity_Blog_AddData(String name, String email, String designation, String branch, String subject,
 			String description, String img, String file, String date) {

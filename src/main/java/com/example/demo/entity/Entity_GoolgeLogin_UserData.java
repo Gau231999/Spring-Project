@@ -32,7 +32,8 @@ public class Entity_GoolgeLogin_UserData {
 
 	
 	public Entity_GoolgeLogin_UserData() {
-		
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	
 	public Entity_GoolgeLogin_UserData(String email, String name, String img_url, String gender, String date,
