@@ -10,8 +10,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-
-@NoArgsConstructor
 @Entity
 public class Entity_Notification {
 	@Id
