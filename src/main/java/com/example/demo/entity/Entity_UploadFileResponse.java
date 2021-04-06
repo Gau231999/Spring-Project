@@ -27,13 +27,11 @@ public class Entity_UploadFileResponse {
     
     
 	public Entity_UploadFileResponse() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Entity_UploadFileResponse(String fileName, String fileDownloadUri, String fileType, String email,
 			long size) {
-		super();
+		
 		this.fileName = fileName;
 		this.fileDownloadUri = fileDownloadUri;
 		this.fileType = fileType;

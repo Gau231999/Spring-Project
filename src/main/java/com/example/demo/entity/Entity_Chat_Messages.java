@@ -10,7 +10,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Entity_Chat_Messages {
@@ -20,11 +19,11 @@ public class Entity_Chat_Messages {
 	String  message,senderemail,receiveremail,commonid;
 	
 	public Entity_Chat_Messages() {
-		super();
+		
 	}
 
 	public Entity_Chat_Messages(String message, String senderemail, String receiveremail, String commonid) {
-		super();
+		
 		this.message = message;
 		this.senderemail = senderemail;
 		this.receiveremail = receiveremail;

@@ -21,14 +21,12 @@ public class Entity_Leave_Request {
 	int nod;
 	
 	public Entity_Leave_Request() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
   
 
 	public Entity_Leave_Request(String dateFrom, String dateTo, String toemp, String fromemp, String branch,
 			String image, String reason, String status, String type, String name, int nod,String email) {
-		super();
+		
 		this.dateFrom = dateFrom;
 		this.dateTo = dateTo;
 		this.toemp = toemp;

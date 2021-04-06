@@ -21,13 +21,11 @@ public class Entity_Leaves {
 	String name,email;
 	
 	public Entity_Leaves() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Entity_Leaves(int casualLeave, int medicalLeave, int sickLeave, int earnedLeave, int outdoorDuty,
 			String name, String email) {
-		super();
+	
 		this.casualLeave = casualLeave;
 		this.medicalLeave = medicalLeave;
 		this.sickLeave = sickLeave;

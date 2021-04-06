@@ -20,13 +20,11 @@ public class Entity_Notification {
 	private String email,msg,date;
 	
 	public Entity_Notification() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
    
 	public Entity_Notification(String email, String msg, String date) {
-		super();
+	
 		this.email = email;
 		this.msg = msg;
 		this.date = date;
