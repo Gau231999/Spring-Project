@@ -37,6 +37,10 @@ public class Service_GoogleLogin_UserData {
 			 return repo.findByEmail(email);
 		}
 	}
+	public List<Entity_GoolgeLogin_UserData> getUserByBranch(String branch)
+	{
+		return repo.findByBranch(branch);
+	}
 	public List<Entity_GoolgeLogin_UserData> getUserByName(String name)
 	{
 			return repo.findByName(name);

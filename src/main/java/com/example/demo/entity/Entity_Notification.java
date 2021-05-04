@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Entity_Notification {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private String email,msg,date;
 	

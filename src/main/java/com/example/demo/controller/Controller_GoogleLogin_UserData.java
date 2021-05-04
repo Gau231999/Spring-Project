@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,7 +29,7 @@ public class Controller_GoogleLogin_UserData {
 	private Service_GoogleLogin Service_GoogleLogin;
 	@Autowired
 	private Service_Leaves Service_Leaves;
-	
+	public String Branch;
 	@RequestMapping(value="/SaveUserProfile",method = RequestMethod.POST)
 	public ModelAndView SaveUserProfile(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) throws UnsupportedEncodingException
 	{
@@ -42,11 +43,17 @@ public class Controller_GoogleLogin_UserData {
 		String date =httpServletRequest.getParameter("birthday");
 		String gender =httpServletRequest.getParameter("gender");
 		String id =httpServletRequest.getParameter("id");
+		List<Entiy_GoogleLogin> Data = Service_GoogleLogin.getUserByEmailID(email);
+		for(Entiy_GoogleLogin Entiy_GoogleLogin : Data)
+		{
+     		  Branch =	Entiy_GoogleLogin.getBranch();
+     		  System.out.println("-------------------------------------"+Branch);
+		}
 		int Id = Integer.parseInt(id);
 		
     	Entiy_GoogleLogin userdata = Service_GoogleLogin.getUserByUserId(Id);
-   
-		Entity_GoolgeLogin_UserData Entity_GoolgeLogin_UserData  = new Entity_GoolgeLogin_UserData(email, name, img_url, gender, date, userdata);
+    	
+		Entity_GoolgeLogin_UserData Entity_GoolgeLogin_UserData  = new Entity_GoolgeLogin_UserData(email, name, img_url, gender, date,Branch, userdata);
 		Service_GoogleLogin_UserData.save(Entity_GoolgeLogin_UserData);
 		
 		Entity_Leaves Entity_Leaves = new Entity_Leaves(10, 10, 10, 10, 10, name, email);

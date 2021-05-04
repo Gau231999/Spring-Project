@@ -45,6 +45,10 @@ public class Controller_Sanction {
 		email =httpServletRequest.getParameter("email");
 		reqemail =httpServletRequest.getParameter("reqemail");
 		List<Entity_GoolgeLogin_UserData> userbrach = Service_GoogleLogin_UserData.getUserByEmail(email);
+		
+		String leavetype =httpServletRequest.getParameter("type");
+		Entity_Leaves data = Service_Leaves.getByEmail(email);
+		
 		for(Entity_GoolgeLogin_UserData Entity_GoolgeLogin_UserData :userbrach)
 		{
 			branch =Entity_GoolgeLogin_UserData.getEntiy_GoogleLogin().getBranch();
@@ -126,6 +130,7 @@ public class Controller_Sanction {
 			List<Entity_Leave_Request> leaves = Service_Leaves_Request.getPrincipleRequest(designation);
 			ModelAndView modelAndView = new ModelAndView();
 			modelAndView.addObject("leaves", leaves);
+			modelAndView.addObject("email", email);
 			modelAndView.setViewName("Sanction_LeaveRequest .jsp");
 			return modelAndView;
 		}
@@ -143,6 +148,7 @@ public class Controller_Sanction {
 				List<Entity_Leave_Request> leaves = Service_Leaves_Request.getByReceiver(designation, branch);
 				ModelAndView modelAndView = new ModelAndView();
 				modelAndView.addObject("leaves", leaves);
+				modelAndView.addObject("email", email);
 				modelAndView.setViewName("Sanction_LeaveRequest .jsp");
 				return modelAndView;
 		}

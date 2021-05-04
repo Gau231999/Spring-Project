@@ -30,4 +30,10 @@ public class Service_UploadFileResponse {
 	{
 		 repo_UploadFileResponse.deleteById(id);
 	}
+	
+	public List<Entity_UploadFileResponse> getAllFilesByName(String name,String type,String start,String end)
+	{
+		return repo_UploadFileResponse.findByUsernameAndFileTypeAndStartAndEnd(name, type, start, end);
+	}
 }
+

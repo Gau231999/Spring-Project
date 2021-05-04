@@ -21,7 +21,7 @@ public class Entity_GoolgeLogin_UserData {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private String email,name,img_url,gender,date;
+	private String email,name,img_url,gender,date,branch;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "foreginKey_userid",nullable = false)
@@ -32,18 +32,28 @@ public class Entity_GoolgeLogin_UserData {
 	public Entity_GoolgeLogin_UserData() {
 	}
 	
+
+	
 	public Entity_GoolgeLogin_UserData(String email, String name, String img_url, String gender, String date,
-			com.example.demo.entity.Entiy_GoogleLogin entiy_GoogleLogin) {
-		
+			String branch, com.example.demo.entity.Entiy_GoogleLogin entiy_GoogleLogin) {
+		super();
 		this.email = email;
 		this.name = name;
 		this.img_url = img_url;
 		this.gender = gender;
 		this.date = date;
-		this.Entiy_GoogleLogin = entiy_GoogleLogin;
+		this.branch = branch;
+		Entiy_GoogleLogin = entiy_GoogleLogin;
 	}
 
 
+	public String getBranch() {
+		return branch;
+	}
+
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
 
 	public int getId() {
 		return id;

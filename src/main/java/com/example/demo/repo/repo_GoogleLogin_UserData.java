@@ -9,5 +9,6 @@ import com.example.demo.entity.Entity_GoolgeLogin_UserData;
 public interface repo_GoogleLogin_UserData extends JpaRepository<Entity_GoolgeLogin_UserData, Integer> {
 	public List<Entity_GoolgeLogin_UserData> findByEmail(String email);
 	public List<Entity_GoolgeLogin_UserData> findByName(String name);
+	public List<Entity_GoolgeLogin_UserData> findByBranch(String branch);
 	Entity_GoolgeLogin_UserData findById(int  id);
 }

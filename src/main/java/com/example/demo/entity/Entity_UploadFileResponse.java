@@ -19,7 +19,7 @@ public class Entity_UploadFileResponse {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	
-    private String fileName,fileDownloadUri,fileType,email;
+    private String fileName,fileDownloadUri,fileType,email,start,end,username;
 
     private long size;
     
@@ -27,14 +27,47 @@ public class Entity_UploadFileResponse {
 	public Entity_UploadFileResponse() {
 	}
 
+	
+	
 	public Entity_UploadFileResponse(String fileName, String fileDownloadUri, String fileType, String email,
-			long size) {
-		
+			String start, String end, String username, long size) {
+		super();
 		this.fileName = fileName;
 		this.fileDownloadUri = fileDownloadUri;
 		this.fileType = fileType;
 		this.email = email;
+		this.start = start;
+		this.end = end;
+		this.username = username;
 		this.size = size;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+
+	public String getStart() {
+		return start;
+	}
+
+	public void setStart(String start) {
+		this.start = start;
+	}
+
+	public String getEnd() {
+		return end;
+	}
+
+	public void setEnd(String end) {
+		this.end = end;
 	}
 
 	public int getId() {

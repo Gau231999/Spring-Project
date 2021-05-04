@@ -8,5 +8,5 @@ import com.example.demo.entity.Entity_Notification;
 import com.example.demo.entity.Entity_UploadFileResponse;
 
 public interface repo_Notification extends JpaRepository<Entity_Notification, Integer> {
-	public List<Entity_Notification>findByEmail(String email);
+	public List<Entity_Notification>findByEmailOrderByIdDesc(String email);
 }

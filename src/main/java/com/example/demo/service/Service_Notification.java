@@ -20,6 +20,6 @@ public class Service_Notification {
 		}
 		public List<Entity_Notification> getByEmail(String  email)
 		{
-			return repo_Notification.findByEmail(email);
+			return repo_Notification.findByEmailOrderByIdDesc(email);
 		}
 }

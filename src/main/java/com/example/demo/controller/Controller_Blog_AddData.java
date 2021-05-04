@@ -38,7 +38,7 @@ public class Controller_Blog_AddData {
 	private Service_Blog_AddData Service_Blog_AddData;
 	@Autowired
 	private FileStoragePojo FileStoragePojo;
-	String email,branch,designation,name;
+	String email,branch,designation,name,userbranch;
 	
 	@RequestMapping("/Blog_AddData")
 	public ModelAndView goTo_Blog_AddData(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) throws UnsupportedEncodingException
@@ -48,13 +48,13 @@ public class Controller_Blog_AddData {
     	for(Entity_GoolgeLogin_UserData getdata : storeDataInListFormat)
     	{
     		 email =  getdata.getEmail();
-    		 branch = getdata.getEntiy_GoogleLogin().getBranch();
-    		designation = getdata.getEntiy_GoogleLogin().getDesignation();
-    		name =  getdata.getName();
+    		 userbranch = getdata.getEntiy_GoogleLogin().getBranch();
+    		 designation = getdata.getEntiy_GoogleLogin().getDesignation();
+    		 name =  getdata.getName();
     	}
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("email", email);
-		modelAndView.addObject("branch", branch);
+		modelAndView.addObject("branch", userbranch);
 		modelAndView.addObject("designation", designation);
 		modelAndView.addObject("name", name);
         modelAndView.setViewName("Blog_AddData.jsp");
@@ -69,7 +69,7 @@ public class Controller_Blog_AddData {
 		String name =httpServletRequest.getParameter("name");
 		String email =httpServletRequest.getParameter("email");
 		String designation =httpServletRequest.getParameter("designation");
-		String branch =httpServletRequest.getParameter("branch");
+		String branch =httpServletRequest.getParameter("SendTo");
 		String description =httpServletRequest.getParameter("Description");
 		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
@@ -104,6 +104,7 @@ public class Controller_Blog_AddData {
 		ModelAndView modelAndView = new ModelAndView();
 		List<Entity_Blog_AddData>  Entity_Blog_AddData = Service_Blog_AddData.getBlogs();
 		modelAndView.addObject("email", email);
+		modelAndView.addObject("UserBranch", userbranch);
 		modelAndView.addObject("Entity_Blog_AddData", Entity_Blog_AddData);
 		modelAndView.setViewName("Blog.jsp");
         return modelAndView;

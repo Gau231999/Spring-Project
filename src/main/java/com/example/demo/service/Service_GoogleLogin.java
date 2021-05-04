@@ -41,15 +41,7 @@ public class Service_GoogleLogin {
 		}
 		return null;
 	}
-    /*public List<Entiy_GoogleLogin> getUserByEmail(String email)
-	{
-		if(repo.findByEmail(email)!=null){
-			System.out.println("Valid user "+repo.findByEmail(email));
-			return repo.findByEmail(email);
-		}
-		System.out.println("InValid user "+repo.findByEmail(email));
-		return repo.findByEmail(email);
-	}*/
+
 	public List<Entiy_GoogleLogin> getUserByEmailID(String email)
 	{
 	

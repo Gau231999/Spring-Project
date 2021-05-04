@@ -16,19 +16,29 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.entity.Entity_Blog_AddData;
+import com.example.demo.entity.Entity_GoolgeLogin_UserData;
+import com.example.demo.entity.Entiy_GoogleLogin;
 import com.example.demo.service.Service_Blog_AddData;
+import com.example.demo.service.Service_GoogleLogin;
+import com.example.demo.service.Service_GoogleLogin_UserData;
 
 @RestController
 public class Controller_Blog {
 	@Autowired
 	private Service_Blog_AddData Service_Blog_AddData;
-	
-	
+	@Autowired
+	private Service_GoogleLogin Service_GoogleLogin;
+	 String UserBranch;
 	@RequestMapping("/Blog")
 	public ModelAndView goTobblog(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) throws UnsupportedEncodingException
 	{	
 		
 		String email =httpServletRequest.getParameter("email");
+		List<Entiy_GoogleLogin>  Entity_user_Data = Service_GoogleLogin.getUserByEmailID(email);
+		for(Entiy_GoogleLogin Entiy_GoogleLogin :Entity_user_Data)
+		{
+			 UserBranch = Entiy_GoogleLogin.getBranch();
+		}
 		List<Entity_Blog_AddData>  Entity_Blog_AddData = Service_Blog_AddData.getBlogs();
 		List<Entity_Blog_AddData>  NoOfPrinciple = Service_Blog_AddData.getByDesignation("Principle");
 		List<Entity_Blog_AddData>  NoOfHod = Service_Blog_AddData.getByDesignation("HOD");
@@ -40,6 +50,7 @@ public class Controller_Blog {
     	modelAndView.addObject("NoOfPrinciple", NoOfPrinciple.size());
     	modelAndView.addObject("NoOfHod", NoOfHod.size());
     	modelAndView.addObject("NoOfTeacher", NoOfTeacher.size());
+    	modelAndView.addObject("UserBranch", UserBranch);
     	modelAndView.addObject("email", email);
         modelAndView.setViewName("Blog.jsp");
         return modelAndView;
@@ -53,7 +64,11 @@ public class Controller_Blog {
 		int Id = Integer.parseInt(id);
 		System.out.println("delete  :  "+email);
 		Service_Blog_AddData.deleteUser(Id);
-		
+		List<Entiy_GoogleLogin>  Entity_user_Data = Service_GoogleLogin.getUserByEmailID(email);
+		for(Entiy_GoogleLogin Entiy_GoogleLogin :Entity_user_Data)
+		{
+			 UserBranch = Entiy_GoogleLogin.getBranch();
+		}
 		List<Entity_Blog_AddData>  Entity_Blog_AddData = Service_Blog_AddData.getBlogs();
 		List<Entity_Blog_AddData>  NoOfPrinciple = Service_Blog_AddData.getByDesignation("Principle");
 		List<Entity_Blog_AddData>  NoOfHod = Service_Blog_AddData.getByDesignation("HOD");
@@ -66,6 +81,7 @@ public class Controller_Blog {
     	modelAndView.addObject("NoOfPrinciple", NoOfPrinciple.size());
     	modelAndView.addObject("NoOfHod", NoOfHod.size());
     	modelAndView.addObject("NoOfTeacher", NoOfTeacher.size());
+    	modelAndView.addObject("UserBranch", UserBranch);
     	modelAndView.addObject("email", email);
         modelAndView.setViewName("Blog.jsp");
         return modelAndView;
@@ -77,8 +93,11 @@ public class Controller_Blog {
 		String email =httpServletRequest.getParameter("email");
 		String name =httpServletRequest.getParameter("name");
 		
-		System.out.println(name);
-		
+		List<Entiy_GoogleLogin>  Entity_user_Data = Service_GoogleLogin.getUserByEmailID(email);
+		for(Entiy_GoogleLogin Entiy_GoogleLogin :Entity_user_Data)
+		{
+			 UserBranch = Entiy_GoogleLogin.getBranch();
+		}
 		List<Entity_Blog_AddData>  Entity_Blog_AddData = Service_Blog_AddData.getByName(name);
 		List<Entity_Blog_AddData>  NoOfPrinciple = Service_Blog_AddData.getByDesignation("Principle");
 		List<Entity_Blog_AddData>  NoOfHod = Service_Blog_AddData.getByDesignation("HOD");
@@ -90,6 +109,7 @@ public class Controller_Blog {
     	modelAndView.addObject("NoOfPrinciple", NoOfPrinciple.size());
     	modelAndView.addObject("NoOfHod", NoOfHod.size());
     	modelAndView.addObject("NoOfTeacher", NoOfTeacher.size());
+    	modelAndView.addObject("UserBranch", UserBranch);
     	modelAndView.addObject("email", email);
         modelAndView.setViewName("Blog.jsp");
         return modelAndView;
